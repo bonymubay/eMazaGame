@@ -17,3 +17,8 @@ use \App\Http\Controllers\contrologenerico;
 
 Route::get('/', [contrologenerico::class, 'landing']);
 
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
