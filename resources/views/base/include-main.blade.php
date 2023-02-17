@@ -5,7 +5,18 @@
 						<div class="hero-copy">
 	                        <h1 class="hero-title mt-0">Servidor de eMazaGame</h1>
 	                        <p class="hero-paragraph"> Apenas pessoas permitidas terao acesso aos dados do servidor. eMazaGame  e um aplicativo ou jogo de perguntas, desenvolvido pela Explicador Inc. Com este jogo voce podes aprenter diversas materias como: ciencias exatas, sociais, tecnologia entre ouros</p>
-	                        <div class="hero-cta"><a class="button button-primary" href="https://play.google.com/store/apps/details?id=emazagame.explicador.co.mz" target="_blank">Baixar o Jogo</a><a class="button" href="/admin">Entar</a></div>
+	                        <div class="hero-cta"><a class="button button-primary" href="https://play.google.com/store/apps/details?id=emazagame.explicador.co.mz" target="_blank">Baixar o Jogo</a>
+
+                            @if(auth()->check())
+                            <a class="button" href="/admin/profile">Perfil</a>
+                            @else
+                            <a class="button" href="/admin">Entrar</a>
+                            @endif
+
+
+                        </div>
+
+
 						</div>
 						<div class="hero-figure anime-element">
 							<svg class="placeholder" width="528" height="396" viewBox="0 0 528 396">

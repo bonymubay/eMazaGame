@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\contrologenerico;
+use Illuminate\Http\Request;
 
 
 /*
@@ -17,8 +18,14 @@ use \App\Http\Controllers\contrologenerico;
 
 Route::get('/', [contrologenerico::class, 'landing']);
 
+Route::get('/generete-token', [contrologenerico::class, 'genereteToken']);
+
+
 
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+    Route::post('/oauth-access-tokens', [contrologenerico::class, 'genereteToken'])->name(name: 'voyager.oauth-access-tokens.store');
+
 });
+

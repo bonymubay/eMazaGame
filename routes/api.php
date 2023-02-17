@@ -16,11 +16,17 @@ use \App\Http\Controllers\QuestionController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//Route::middleware('auth:sanctum')->
+Route::middleware('auth:api')->group(function () {
+
+route:: get('/user', function (Request $request) {
     return $request->user();
 
 });
 
-Route::get( '/subjects', [SubjectController::class, 'getData']);
 
-Route::get( '/questions', [QuestionController::class, 'getData']);
+route:: apiResources([
+    'subjects'=> SubjectController::class,
+    'questions'=> QuestionController::class,
+]);
+});
